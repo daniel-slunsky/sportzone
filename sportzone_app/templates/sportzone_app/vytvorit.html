@@ -1,0 +1,27 @@
+{% extends "sportzone_app/base.html" %}
+
+
+{% block content %}
+<h2>Vytvořit novou rezervaci</h2>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="trenink" class="form-label">Vyberte trénink</label>
+        <select name="trenink" id="trenink" class="form-select" required>
+            {% for trenink in treninky %}
+                <option value="{{ trenink.id }}">{{ trenink.typ }} - {{ trenink.delka }} minut</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="datum" class="form-label">Datum</label>
+        <input type="date" name="datum" id="datum" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="cas" class="form-label">Čas</label>
+        <input type="time" name="cas" id="cas" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Rezervovat</button>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Zpět</a>
+</form>
+{% endblock %}

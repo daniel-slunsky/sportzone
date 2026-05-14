@@ -1,0 +1,30 @@
+{% extends "sportzone_app/base.html" %}
+
+
+{% block content %}
+<h2>Moje rezervace</h2>
+{% if rezervace %}
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Trénink</th>
+                <th>Datum</th>
+                <th>Čas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in rezervace %}
+            <tr>
+                <td>{{ r.trenink.typ }}</td>
+                <td>{{ r.datum }}</td>
+                <td>{{ r.cas }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Nemáte žádné rezervace.</p>
+{% endif %}
+<a href="{% url 'vytvorit_rezervaci' %}" class="btn btn-primary mt-3">Vytvořit novou rezervaci</a>
+<a href="{% url 'index' %}" class="btn btn-secondary mt-3">Zpět na hlavní stránku</a>
+{% endblock %}

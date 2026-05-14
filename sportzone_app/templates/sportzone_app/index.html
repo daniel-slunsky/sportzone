@@ -1,0 +1,17 @@
+{% extends "sportzone_app/base.html" %}
+
+
+{% block content %}
+<div class="text-center">
+    <h1>Vítejte v rezervačním systému SportZone</h1>
+    {% if user.is_authenticated %}
+        <p class="lead">Ahoj, {{ user.username }}! Co chcete dělat dál?</p>
+        <a href="{% url 'vytvorit_rezervaci' %}" class="btn btn-primary m-2">Vytvořit rezervaci</a>
+        <a href="{% url 'moje_rezervace' %}" class="btn btn-secondary m-2">Moje rezervace</a>
+        <a href="{% url 'logout' %}" class="btn btn-danger m-2">Odhlásit se</a>
+    {% else %}
+        <p class="lead">Pro rezervaci se prosím přihlaste nebo zaregistrujte.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary m-2">Přihlásit se</a>
+    {% endif %}
+</div>
+{% endblock %}
