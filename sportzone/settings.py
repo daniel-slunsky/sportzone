@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$qm&dum_wo)j#*c%q$jl86kq2t$hxv@kj=m9+@hqpb#d5t$9e9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["slunskydaniel.pythonanywhere.com"]
 
 
 # Application definition
@@ -117,3 +117,5 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/'
+
+
